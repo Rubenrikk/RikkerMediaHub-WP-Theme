@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-09-16
+### Fixed
+- Paste de WPForms naamvelden aan zodat voor- en achternaam naast elkaar staan met elk 50% breedte en hield het e-mailveld op volledige breedte.
+
 ## [1.1.0] - 2025-09-16
 ### Changed
 - Vergroot de WPForms velden voor naam en e-mail naar volledige breedte voor consistentie met het omschrijvingsveld.
