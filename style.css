@@ -286,3 +286,28 @@ div[id^="mailerlite-form_"] .form_error {
   margin-top: -0.8em !important;
   margin-bottom: 1em !important;
 }
+
+/* Maak content 100% breed en haal de zijbalk weg */
+#left-area {
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+#sidebar {
+  display: none !important;
+}
+
+/* Haal de verticale lijn/spacer van Divi weg */
+#main-content .container:before {
+  display: none !important;
+}
+
+/* Eventuele padding-correcties voor beide zijbalk-varianten */
+.et_right_sidebar #left-area {
+  padding-right: 0 !important;
+}
+
+.et_left_sidebar #left-area {
+  padding-left: 0 !important;
+}
