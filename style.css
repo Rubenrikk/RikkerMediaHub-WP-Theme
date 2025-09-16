@@ -2,7 +2,7 @@
  * Theme Name:       RikkerMediaHub Divi Child
  * Theme URI:        https://rikkermediahub.com/
  * Template:         Divi
- * Version:          1.0
+ * Version:          1.1
  * Author:           RikkerMediaHub
  * Author URI:       https://rikkermediahub.com/
  * Description:      Child theme for Divi with custom styling (WPForms, MailerLite, login page, and full-width layout fixes).
@@ -51,6 +51,25 @@ div.wpforms-container .wpforms-form .wpforms-field select {
   font-size: 0.95rem !important;
   color: #212121 !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* 5a. Naam- en e-mailvelden op volledige breedte */
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name,
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-email {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row {
+  display: block !important;
+}
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  padding-right: 0 !important;
+}
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block + .wpforms-field-row-block {
+  margin-top: 1rem !important;
 }
 div.wpforms-container .wpforms-form .wpforms-field input:focus,
 div.wpforms-container .wpforms-form .wpforms-field textarea:focus,
