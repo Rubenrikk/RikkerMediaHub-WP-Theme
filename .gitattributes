@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+*.php linguist-language=PHP
+*.css linguist-language=CSS
+*.md linguist-language=Markdown
+*.jpg binary
+*.png binary

@@ -1,10 +1,248 @@
 /**
- * Theme Name:     Rikker Media Hub 
- * Author:         Rikker Media Hub
- * Template:       Divi
- * Text Domain:	   Rikker Media Hub
- * Description:    Rikker Media Hub theme (Divi)
- * Theme URI:      https://www.rikkermediahub.com
- * Author URI:     https://www.rikkermediahub.com
- * Version:        2.0
+ * Theme Name:       RikkerMediaHub Divi Child
+ * Theme URI:        https://rikkermediahub.com/
+ * Template:         Divi
+ * Version:          1.0
+ * Author:           RikkerMediaHub
+ * Author URI:       https://rikkermediahub.com/
+ * Description:      Child theme for Divi with custom styling (WPForms, MailerLite, login page, and full-width layout fixes).
+ * Text Domain:      rikkermediahub-divi-child
+ * License:          GPL-2.0-or-later
  */
+/* 1. Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+/* 2. WPForms styling voor Divi */
+div.wpforms-container .wpforms-form {
+  background-color: #FFFFFF !important;
+  padding: 2rem !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  font-family: 'Roboto Mono', monospace !important;
+  color: #212121 !important;
+}
+
+/* 3. Koppen & sectietitels */
+div.wpforms-container .wpforms-form h2,
+div.wpforms-container .wpforms-form .wpforms-title {
+  font-family: 'Oswald', sans-serif !important;
+  color: #E53935 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* 4. Veldlabels */
+div.wpforms-container .wpforms-form .wpforms-field-label {
+  font-family: 'Oswald', sans-serif !important;
+  color: #212121 !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 1rem !important;
+}
+
+/* 5. Input, textarea & select */
+div.wpforms-container .wpforms-form .wpforms-field input,
+div.wpforms-container .wpforms-form .wpforms-field textarea,
+div.wpforms-container .wpforms-form .wpforms-field select {
+  width: 100% !important;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #F6F6F6 !important;
+  border-radius: 0.25rem !important;
+  background-color: #FFF8F7 !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.95rem !important;
+  color: #212121 !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+div.wpforms-container .wpforms-form .wpforms-field input:focus,
+div.wpforms-container .wpforms-form .wpforms-field textarea:focus,
+div.wpforms-container .wpforms-form .wpforms-field select:focus {
+  outline: none !important;
+  border-color: #E53935 !important;
+  box-shadow: 0 0 0 3px rgba(229,57,53,0.15) !important;
+  background-color: #FFFFFF !important;
+}
+
+/* 6. Beschrijvingen / helpteksten */
+div.wpforms-container .wpforms-form .wpforms-field-description,
+div.wpforms-container .wpforms-form .wpforms-field-hint {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.85rem !important;
+  color: #B71C1C !important;
+  margin-top: 0.25rem !important;
+}
+
+/* 7. Submit-knop */
+div.wpforms-container .wpforms-form .wpforms-submit {
+  display: inline-block !important;
+  padding: 0.75rem 2rem !important;
+  background-color: #E53935 !important;
+  color: #FFFFFF !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 1.05rem !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-radius: 0.25rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+div.wpforms-container .wpforms-form .wpforms-submit:hover,
+div.wpforms-container .wpforms-form .wpforms-submit:focus {
+  background-color: #B71C1C !important;
+}
+
+/* 8. Checkboxen & radio buttons */
+div.wpforms-container .wpforms-form .wpforms-field-checkbox label,
+div.wpforms-container .wpforms-form .wpforms-field-radio label {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.95rem !important;
+  color: #212121 !important;
+}
+div.wpforms-container .wpforms-form .wpforms-field-checkbox input[type="checkbox"],
+div.wpforms-container .wpforms-form .wpforms-field-radio input[type="radio"] {
+  accent-color: #E53935 !important;
+}
+
+/* 9. Achtergrondaccenten & blokken */
+div.wpforms-container .wpforms-form .wpforms-section {
+  background-color: #FFF0F0 !important;
+  padding: 1.5rem !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+div.wpforms-container .wpforms-form .wpforms-page {
+  background-color: #FFEAEA !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}
+
+/* 10. Error & success berichten */
+div.wpforms-container .wpforms-form .wpforms-error,
+div.wpforms-container .wpforms-form .wpforms-error-after-field {
+  color: #B71C1C !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.9rem !important;
+}
+div.wpforms-container .wpforms-form .wpforms-confirmation-container {
+  border: 1px solid #E53935 !important;
+  background-color: #FFE0B2 !important;
+  padding: 1rem !important;
+  border-radius: 0.25rem !important;
+  font-family: 'Oswald', sans-serif !important;
+  color: #212121 !important;
+  margin-top: 1rem !important;
+}
+
+/* 11. Iconen (via :before) */
+div.wpforms-container .wpforms-form .wpforms-icon:before {
+  color: #E53935 !important;
+  font-size: 1.2rem !important;
+}
+
+/* 12. Responsive tweaks */
+@media (max-width: 768px) {
+  div.wpforms-container .wpforms-form {
+    padding: 1rem !important;
+  }
+  div.wpforms-container .wpforms-form .wpforms-submit {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* mailerlite opmaak*/
+
+/* 2. Universele wrapper voor MailerLite-formulieren */
+div[id^="mailerlite-form_"] {
+  border-radius: 10px !important;
+  font-family: 'Roboto Mono', monospace !important;
+  color: #232323 !important;            /* Donkergrijs */
+}
+
+/* 3. Koppen en titels */
+div[id^="mailerlite-form_"] .ml-block-form__title,
+div[id^="mailerlite-form_"] .form_title {
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #E53935 !important;            /* Rood */
+  margin-bottom: 0.5em !important;
+}
+
+/* 4. Ondertitels en beschrijvingen */
+div[id^="mailerlite-form_"] .ml-block-form__description,
+div[id^="mailerlite-form_"] .form_subtitle {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 1rem !important;
+  color: #232323 !important;
+  margin-bottom: 1.5em !important;
+}
+
+/* 5. Input- en textarea-velden */
+div[id^="mailerlite-form_"] input[type="text"],
+div[id^="mailerlite-form_"] input[type="email"],
+div[id^="mailerlite-form_"] textarea {
+  width: 100% !important;
+  padding: 5px 5px !important;
+  border: 1px solid #232323 !important; /* Dieprood */
+  border-radius: 6px !important;
+  background-color: #FFFFFF !important;  /* Wit */
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 1rem !important;
+  color: #232323 !important;
+  margin-bottom: 1.2em !important;
+  transition: border-color 0.3s ease !important;
+}
+
+div[id^="mailerlite-form_"] input:focus,
+div[id^="mailerlite-form_"] textarea:focus {
+  border-color: #24325F !important;      /* Donkerblauw */
+  outline: none !important;
+}
+
+/* 6. Checkbox- en radiolabels */
+div[id^="mailerlite-form_"] .ml-checkbox-group label,
+div[id^="mailerlite-form_"] .ml-radio-group label {
+  font-family: 'Roboto Mono', monospace !important;
+  color: #232323 !important;
+  margin-left: 5px !important;
+}
+
+/* 7. Submit-knop */
+div[id^="mailerlite-form_"] .ml-block-form__submit,
+div[id^="mailerlite-form_"] button {
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  background-color: #E53935 !important;  /* Rood */
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 12px 30px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+div[id^="mailerlite-form_"] .ml-block-form__submit:hover,
+div[id^="mailerlite-form_"] button:hover {
+  background-color: #B71C1C !important;  /* Dieprood */
+}
+
+/* 8. Links en hover-states */
+div[id^="mailerlite-form_"] a {
+  color: #24325F !important;             /* Donkerblauw */
+  text-decoration: underline !important;
+}
+
+div[id^="mailerlite-form_"] a:hover {
+  color: #E5734C !important;             /* Zacht terracotta */
+}
+
+/* 9. Foutmeldingen en validatietekst */
+div[id^="mailerlite-form_"] .ml-form-field-error,
+div[id^="mailerlite-form_"] .form_error {
+  font-family: 'Roboto Mono', monospace !important;
+  color: #E53935 !important;             /* Rood */
+  font-size: 0.9rem !important;
+  margin-top: -0.8em !important;
+  margin-bottom: 1em !important;
+}
