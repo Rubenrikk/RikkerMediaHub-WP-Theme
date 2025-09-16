@@ -1,0 +1,31 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+*.iml
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node / front-end builds
+node_modules/
+dist/
+.build/
+.cache/
+
+# Composer
+vendor/
+composer.phar
+
+# Misc
+.env
+*.local
