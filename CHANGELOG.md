@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2025-09-18
+### Changed
+- Form UI: consistente layout, responsive, a11y; conflict-preventie; single enqueue.
+
 ## [1.3.0] - 2025-09-17
 ### Fixed
 - Herstelde de WPForms-naamvelden door een gridindeling te gebruiken zodat voor- en achternaam weer netjes naast elkaar staan op desktop en volledig stapelen op kleine schermen.

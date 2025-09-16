@@ -2,7 +2,7 @@
  * Theme Name:       RikkerMediaHub Divi Child
  * Theme URI:        https://rikkermediahub.com/
  * Template:         Divi
- * Version:          1.3
+ * Version:          1.4
  * Author:           RikkerMediaHub
  * Author URI:       https://rikkermediahub.com/
  * Description:      Child theme for Divi with custom styling (WPForms, MailerLite, login page, and full-width layout fixes).
@@ -12,179 +12,257 @@
 /* 1. Google Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
 
-/* 2. WPForms styling voor Divi */
+/* -------------------------------------------------------------------------- */
+/* Form UI refresh – WPForms (consistent layout, spacing, a11y, responsive)   */
+/* -------------------------------------------------------------------------- */
 div.wpforms-container .wpforms-form {
-  background-color: #FFFFFF !important;
-  padding: 2rem !important;
-  border-radius: 0.5rem !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
-  font-family: 'Roboto Mono', monospace !important;
-  color: #212121 !important;
+  --rmh-form-primary: var(--et_pb_primary_color, #e53935);
+  --rmh-form-primary-hover: var(--et_pb_primary_hover_color, #c62828);
+  --rmh-form-error: var(--et_pb_accent_color, #b71c1c);
+  --rmh-form-border: rgba(33, 33, 33, 0.2);
+  --rmh-form-field-bg: var(--et_pb_light_background_color, #ffffff);
+  --rmh-form-radius: 0.5rem;
+  --rmh-form-field-spacing: 1.25rem;
+  --rmh-form-label-spacing: 0.5rem;
+  --rmh-form-transition: 160ms ease;
+  background-color: var(--rmh-form-field-bg);
+  color: inherit;
+  font-family: inherit;
+  line-height: 1.55;
+  padding: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  border-radius: var(--rmh-form-radius);
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.05);
 }
 
-/* 3. Koppen & sectietitels */
 div.wpforms-container .wpforms-form h2,
 div.wpforms-container .wpforms-form .wpforms-title {
-  font-family: 'Oswald', sans-serif !important;
-  color: #E53935 !important;
-  margin-bottom: 1rem !important;
+  color: var(--rmh-form-primary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
-/* 4. Veldlabels */
+div.wpforms-container .wpforms-form .wpforms-field-container {
+  display: grid;
+  gap: var(--rmh-form-field-spacing);
+  margin: 0;
+}
+
+div.wpforms-container .wpforms-form .wpforms-field {
+  margin: 0;
+}
+
+div.wpforms-container .wpforms-form .wpforms-field fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
 div.wpforms-container .wpforms-form .wpforms-field-label {
-  font-family: 'Oswald', sans-serif !important;
-  color: #212121 !important;
-  margin-bottom: 0.5rem !important;
-  font-size: 1rem !important;
+  display: inline-flex;
+  align-items: baseline;
+  column-gap: 0.25rem;
+  font-weight: 600;
+  margin-bottom: var(--rmh-form-label-spacing);
+  color: inherit;
 }
 
-/* 5. Input, textarea & select */
-div.wpforms-container .wpforms-form .wpforms-field input,
-div.wpforms-container .wpforms-form .wpforms-field textarea,
+div.wpforms-container .wpforms-form .wpforms-required-label {
+  color: var(--rmh-form-primary);
+  font-weight: inherit;
+  line-height: 1;
+}
+
+div.wpforms-container .wpforms-form .wpforms-field-sublabel {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-top: 0.375rem;
+  color: rgba(33, 33, 33, 0.75);
+}
+
+div.wpforms-container .wpforms-form .wpforms-field input[type="text"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="email"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="tel"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="url"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="number"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="password"],
+div.wpforms-container .wpforms-form .wpforms-field input[type="search"],
+div.wpforms-container .wpforms-form .wpforms-field select,
+div.wpforms-container .wpforms-form .wpforms-field textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rmh-form-border);
+  border-radius: var(--rmh-form-radius);
+  background-color: var(--rmh-form-field-bg);
+  color: inherit;
+  font: inherit;
+  line-height: 1.5;
+  transition: border-color var(--rmh-form-transition),
+    box-shadow var(--rmh-form-transition),
+    outline-color var(--rmh-form-transition);
+}
+
 div.wpforms-container .wpforms-form .wpforms-field select {
-  width: 100% !important;
-  padding: 0.75rem 1rem !important;
-  border: 1px solid #F6F6F6 !important;
-  border-radius: 0.25rem !important;
-  background-color: #FFF8F7 !important;
-  font-family: 'Roboto Mono', monospace !important;
-  font-size: 0.95rem !important;
-  color: #212121 !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 1.25rem) calc(50% - 0.25rem),
+    calc(100% - 0.75rem) calc(50% - 0.25rem);
+  background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
 }
 
-/* 5a. Naam- en e-mailvelden */
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name,
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-email {
-  width: 100% !important;
-  max-width: 100% !important;
+div.wpforms-container .wpforms-form .wpforms-field textarea {
+  min-height: 9rem;
+  resize: vertical;
 }
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name fieldset {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
+
+div.wpforms-container .wpforms-form .wpforms-field input::placeholder,
+div.wpforms-container .wpforms-form .wpforms-field textarea::placeholder {
+  color: rgba(33, 33, 33, 0.6);
+  opacity: 1;
 }
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-  gap: 1rem !important;
-  margin: 0 !important;
-}
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  float: none !important;
-  padding-right: 0 !important;
-}
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block input,
-div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-email input {
-  width: 100% !important;
-}
-@media (max-width: 640px) {
-  div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
-  }
-  div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block {
-    max-width: 100% !important;
-  }
-}
+
 div.wpforms-container .wpforms-form .wpforms-field input:focus,
+div.wpforms-container .wpforms-form .wpforms-field input:focus-visible,
+div.wpforms-container .wpforms-form .wpforms-field select:focus,
+div.wpforms-container .wpforms-form .wpforms-field select:focus-visible,
 div.wpforms-container .wpforms-form .wpforms-field textarea:focus,
-div.wpforms-container .wpforms-form .wpforms-field select:focus {
-  outline: none !important;
-  border-color: #E53935 !important;
-  box-shadow: 0 0 0 3px rgba(229,57,53,0.15) !important;
-  background-color: #FFFFFF !important;
+div.wpforms-container .wpforms-form .wpforms-field textarea:focus-visible {
+  border-color: var(--rmh-form-primary);
+  outline: 2px solid var(--rmh-form-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.18);
+  background-color: #fff;
 }
 
-/* 6. Beschrijvingen / helpteksten */
+div.wpforms-container .wpforms-form .wpforms-field input:-webkit-autofill,
+div.wpforms-container .wpforms-form .wpforms-field textarea:-webkit-autofill {
+  box-shadow: 0 0 0 1000px var(--rmh-form-field-bg) inset;
+}
+
 div.wpforms-container .wpforms-form .wpforms-field-description,
 div.wpforms-container .wpforms-form .wpforms-field-hint {
-  font-family: 'Roboto Mono', monospace !important;
-  font-size: 0.85rem !important;
-  color: #B71C1C !important;
-  margin-top: 0.25rem !important;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-top: 0.375rem;
+  color: rgba(33, 33, 33, 0.75);
 }
 
-/* 7. Submit-knop */
-div.wpforms-container .wpforms-form .wpforms-submit {
-  display: inline-block !important;
-  padding: 0.75rem 2rem !important;
-  background-color: #E53935 !important;
-  color: #FFFFFF !important;
-  font-family: 'Oswald', sans-serif !important;
-  font-size: 1.05rem !important;
-  text-transform: uppercase !important;
-  border: none !important;
-  border-radius: 0.25rem !important;
-  cursor: pointer !important;
-  transition: background-color 0.2s ease !important;
-}
-div.wpforms-container .wpforms-form .wpforms-submit:hover,
-div.wpforms-container .wpforms-form .wpforms-submit:focus {
-  background-color: #B71C1C !important;
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row {
+  display: grid;
+  gap: var(--rmh-form-label-spacing);
+  margin: 0;
 }
 
-/* 8. Checkboxen & radio buttons */
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row .wpforms-field-row-block {
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-name .wpforms-field-row input,
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-field-email input {
+  width: 100%;
+}
+
 div.wpforms-container .wpforms-form .wpforms-field-checkbox label,
 div.wpforms-container .wpforms-form .wpforms-field-radio label {
-  font-family: 'Roboto Mono', monospace !important;
-  font-size: 0.95rem !important;
-  color: #212121 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0.375rem;
 }
+
 div.wpforms-container .wpforms-form .wpforms-field-checkbox input[type="checkbox"],
 div.wpforms-container .wpforms-form .wpforms-field-radio input[type="radio"] {
-  accent-color: #E53935 !important;
+  accent-color: var(--rmh-form-primary);
 }
 
-/* 9. Achtergrondaccenten & blokken */
-div.wpforms-container .wpforms-form .wpforms-section {
-  background-color: #FFF0F0 !important;
-  padding: 1.5rem !important;
-  border-radius: 0.5rem !important;
-  margin-bottom: 1.5rem !important;
-}
-div.wpforms-container .wpforms-form .wpforms-page {
-  background-color: #FFEAEA !important;
-  padding: 1rem !important;
-  border-radius: 0.5rem !important;
-}
-
-/* 10. Error & success berichten */
 div.wpforms-container .wpforms-form .wpforms-error,
-div.wpforms-container .wpforms-form .wpforms-error-after-field {
-  color: #B71C1C !important;
-  font-family: 'Roboto Mono', monospace !important;
-  font-size: 0.9rem !important;
+div.wpforms-container .wpforms-form .wpforms-error-after-field,
+div.wpforms-container .wpforms-form label.wpforms-error {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--rmh-form-error);
+  font-size: 0.875rem;
+  line-height: 1.45;
 }
+
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error input,
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error select,
+div.wpforms-container .wpforms-form .wpforms-field.wpforms-has-error textarea,
+div.wpforms-container .wpforms-form .wpforms-field input.wpforms-error,
+div.wpforms-container .wpforms-form .wpforms-field textarea.wpforms-error {
+  border-color: var(--rmh-form-error);
+  box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.15);
+}
+
 div.wpforms-container .wpforms-form .wpforms-confirmation-container {
-  border: 1px solid #E53935 !important;
-  background-color: #FFE0B2 !important;
-  padding: 1rem !important;
-  border-radius: 0.25rem !important;
-  font-family: 'Oswald', sans-serif !important;
-  color: #212121 !important;
-  margin-top: 1rem !important;
+  border: 1px solid var(--rmh-form-primary);
+  background-color: rgba(229, 57, 53, 0.06);
+  border-radius: var(--rmh-form-radius);
+  padding: 1rem 1.25rem;
+  color: inherit;
+  margin-top: var(--rmh-form-field-spacing);
 }
 
-/* 11. Iconen (via :before) */
-div.wpforms-container .wpforms-form .wpforms-icon:before {
-  color: #E53935 !important;
-  font-size: 1.2rem !important;
+div.wpforms-container .wpforms-form .wpforms-submit-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-top: var(--rmh-form-field-spacing);
 }
 
-/* 12. Responsive tweaks */
-@media (max-width: 768px) {
+div.wpforms-container .wpforms-form .wpforms-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  border: 0;
+  border-radius: var(--rmh-form-radius);
+  background-color: var(--rmh-form-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color var(--rmh-form-transition),
+    box-shadow var(--rmh-form-transition),
+    transform var(--rmh-form-transition);
+  cursor: pointer;
+}
+
+div.wpforms-container .wpforms-form .wpforms-submit:hover,
+div.wpforms-container .wpforms-form .wpforms-submit:focus,
+div.wpforms-container .wpforms-form .wpforms-submit:focus-visible {
+  background-color: var(--rmh-form-primary-hover);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.18);
+  outline: 2px solid var(--rmh-form-primary-hover);
+  outline-offset: 2px;
+  transform: translateY(-1px);
+}
+
+div.wpforms-container .wpforms-form .wpforms-submit:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 47.99em) {
   div.wpforms-container .wpforms-form {
-    padding: 1rem !important;
+    padding: 1.25rem;
   }
+
   div.wpforms-container .wpforms-form .wpforms-submit {
-    width: 100% !important;
-    text-align: center !important;
+    width: 100%;
   }
 }
 
