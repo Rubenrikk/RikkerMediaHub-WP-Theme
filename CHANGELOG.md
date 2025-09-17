@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.5.0] - 2025-09-19
+### Changed
+- WPForms naamvelden voorzien van flex fallback met mobiele stacking, lint fixes en aangepaste enqueue-volgorde voor forms.css.
+
 ## [1.4.0] - 2025-09-18
 ### Changed
 - Form UI: consistente layout, responsive, a11y; conflict-preventie; single enqueue.
