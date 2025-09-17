@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.8.0] - 2025-09-19
+### Changed
+- Lijn de WPForms velden voor voor- en achternaam gelijk met het e-mailadres en gebruik #e53935 als standaardknopkleur.
+
 # [1.7.0] - 2025-09-19
 ### Changed
 - Zorgde ervoor dat de WPForms-velden voor voor- en achternaam naast elkaar staan op grotere schermen en mobiel blijven stapelen.
