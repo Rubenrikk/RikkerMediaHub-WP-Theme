@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.7.0] - 2025-09-19
+### Changed
+- Zorgde ervoor dat de WPForms-velden voor voor- en achternaam naast elkaar staan op grotere schermen en mobiel blijven stapelen.
+- Paste de WPForms verzendknop aan naar de primaire en secundaire huisstijlkleuren met wittekstopmaak.
+
 # [1.6.0] - 2025-09-19
 ### Fixed
 - Vervingen van moderne CSS-features door breed ondersteunde alternatieven zodat de WordPress theme editor geen fouten meer meldt.
