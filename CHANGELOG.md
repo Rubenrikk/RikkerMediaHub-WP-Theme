@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.6.0] - 2025-09-19
+### Fixed
+- Vervingen van moderne CSS-features door breed ondersteunde alternatieven zodat de WordPress theme editor geen fouten meer meldt.
+- WPForms-layout bijgewerkt met klassieke marges en responsieve padding voor consistente spacing zonder CSS variabelen.
+
 # [1.5.0] - 2025-09-19
 ### Changed
 - WPForms naamvelden voorzien van flex fallback met mobiele stacking, lint fixes en aangepaste enqueue-volgorde voor forms.css.
