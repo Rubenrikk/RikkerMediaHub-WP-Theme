@@ -1,6 +1,16 @@
-#wp-submit {
-    background-color: #eb4034 !important; 
+.login h1 a {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
+
+#wp-submit {
+    background-color: #eb4034 !important;
+}
+
 #wp-submit:hover {
-    background-color: #ff0000 !important; 
+    background-color: #ff0000 !important;
 }

@@ -1,0 +1,19 @@
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon {
+    width: 32px;
+    height: 32px;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item {
+    padding-left: 0;
+}
