@@ -13,7 +13,7 @@ add_action( 'admin_enqueue_scripts', 'rikkermediahub_divi_child_enqueue_admin_st
 /**
  * Enqueue parent and child theme stylesheets.
  */
-function rikkermediahub_divi_child_enqueue_styles(): void {
+function rikkermediahub_divi_child_enqueue_styles() {
     wp_enqueue_style( 'rikkermediahub-divi-parent', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style(
         'rikkermediahub-divi-child',
@@ -26,7 +26,7 @@ function rikkermediahub_divi_child_enqueue_styles(): void {
 /**
  * Enqueue WPForms overrides after the base styles.
  */
-function rikkermediahub_divi_child_enqueue_form_styles(): void {
+function rikkermediahub_divi_child_enqueue_form_styles() {
     if ( wp_style_is( 'rmh-forms', 'enqueued' ) ) {
         return;
     }
@@ -50,7 +50,7 @@ function rikkermediahub_divi_child_enqueue_form_styles(): void {
 /**
  * Enqueue login screen stylesheet and replace the login logo.
  */
-function rikkermediahub_divi_child_enqueue_login_styles(): void {
+function rikkermediahub_divi_child_enqueue_login_styles() {
     $handle = 'rikkermediahub-divi-login';
 
     wp_enqueue_style(
@@ -60,11 +60,17 @@ function rikkermediahub_divi_child_enqueue_login_styles(): void {
         wp_get_theme()->get( 'Version' )
     );
 
-    $logo_url  = esc_url_raw( get_stylesheet_directory_uri() . '/images/custom-icon.png' );
-    $inline_css = sprintf(
-        ".login h1 a {\n    background-image: url('%1$s');\n    background-size: contain;\n    background-repeat: no-repeat;\n    width: 120px;\n    height: 120px;\n}\n.login h1 a:focus {\n    box-shadow: none;\n}",
-        $logo_url
-    );
+    $logo_url = esc_url_raw( get_stylesheet_directory_uri() . '/images/custom-icon.png' );
+    $inline_css = ".login h1 a {\n";
+    $inline_css .= "    background-image: url('" . $logo_url . "');\n";
+    $inline_css .= "    background-size: contain;\n";
+    $inline_css .= "    background-repeat: no-repeat;\n";
+    $inline_css .= "    width: 120px;\n";
+    $inline_css .= "    height: 120px;\n";
+    $inline_css .= "}\n";
+    $inline_css .= ".login h1 a:focus {\n";
+    $inline_css .= "    box-shadow: none;\n";
+    $inline_css .= "}";
 
     wp_add_inline_style( $handle, $inline_css );
 }
@@ -72,7 +78,7 @@ function rikkermediahub_divi_child_enqueue_login_styles(): void {
 /**
  * Enqueue admin styles to swap the WordPress logo in the toolbar.
  */
-function rikkermediahub_divi_child_enqueue_admin_styles(): void {
+function rikkermediahub_divi_child_enqueue_admin_styles() {
     $handle = 'rikkermediahub-divi-admin';
 
     wp_enqueue_style(
@@ -82,11 +88,10 @@ function rikkermediahub_divi_child_enqueue_admin_styles(): void {
         wp_get_theme()->get( 'Version' )
     );
 
-    $logo_url  = esc_url_raw( get_stylesheet_directory_uri() . '/images/custom-icon.png' );
-    $inline_css = sprintf(
-        "#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {\n    background-image: url('%1$s');\n}",
-        $logo_url
-    );
+    $logo_url = esc_url_raw( get_stylesheet_directory_uri() . '/images/custom-icon.png' );
+    $inline_css = "#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {\n";
+    $inline_css .= "    background-image: url('" . $logo_url . "');\n";
+    $inline_css .= "}";
 
     wp_add_inline_style( $handle, $inline_css );
 }
