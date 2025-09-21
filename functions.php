@@ -9,6 +9,8 @@ add_action( 'wp_enqueue_scripts', 'rikkermediahub_divi_child_enqueue_styles' );
 add_action( 'wp_enqueue_scripts', 'rikkermediahub_divi_child_enqueue_form_styles', 20 );
 add_action( 'login_enqueue_scripts', 'rikkermediahub_divi_child_enqueue_login_styles' );
 add_action( 'admin_enqueue_scripts', 'rikkermediahub_divi_child_enqueue_admin_styles' );
+add_action( 'wp_head', 'rikkermediahub_divi_child_add_bestellingen_meta' );
+add_action( 'send_headers', 'rikkermediahub_divi_child_add_bestellingen_header' );
 
 /**
  * Enqueue parent and child theme stylesheets.
@@ -97,3 +99,40 @@ function rikkermediahub_divi_child_enqueue_admin_styles() {
 }
 
 require_once __DIR__ . '/inc/setup.php';
+
+/**
+ * Determine if the current request targets a /bestellingen/ URL.
+ *
+ * @return bool
+ */
+function rikkermediahub_divi_child_is_bestellingen_request() {
+    if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+        return false;
+    }
+
+    return false !== strpos( $_SERVER['REQUEST_URI'], '/bestellingen/' );
+}
+
+/**
+ * Output a robots meta tag for /bestellingen/ pages.
+ */
+function rikkermediahub_divi_child_add_bestellingen_meta() {
+    if ( ! rikkermediahub_divi_child_is_bestellingen_request() ) {
+        return;
+    }
+
+    echo "<meta name=\"robots\" content=\"noindex, nofollow\">\n";
+}
+
+/**
+ * Send the X-Robots-Tag header for /bestellingen/ pages.
+ */
+function rikkermediahub_divi_child_add_bestellingen_header() {
+    if ( ! rikkermediahub_divi_child_is_bestellingen_request() ) {
+        return;
+    }
+
+    if ( ! headers_sent() ) {
+        header( 'X-Robots-Tag: noindex, nofollow', true );
+    }
+}
