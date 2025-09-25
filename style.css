@@ -2,7 +2,7 @@
  * Theme Name:       RikkerMediaHub Divi Child
  * Theme URI:        https://rikkermediahub.com/
  * Template:         Divi
- * Version:          2.2.0
+ * Version:          2.3.0
  * Author:           RikkerMediaHub
  * Author URI:       https://rikkermediahub.com/
  * Description:      Child theme for Divi with custom styling (WPForms, MailerLite, login page, and full-width layout fixes).
@@ -10,7 +10,7 @@
  * License:          GPL-2.0-or-later
  */
 /* 1. Google Fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@400;600;700&display=swap');
 
 /* WPForms styling is enqueued separately via assets/css/forms.css */
 /* mailerlite opmaak*/
@@ -18,7 +18,7 @@
 /* 2. Universele wrapper voor MailerLite-formulieren */
 div[id^="mailerlite-form_"] {
   border-radius: 10px !important;
-  font-family: 'Roboto Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   color: #232323 !important;            /* Donkergrijs */
 }
 
@@ -35,7 +35,7 @@ div[id^="mailerlite-form_"] .form_title {
 /* 4. Ondertitels en beschrijvingen */
 div[id^="mailerlite-form_"] .ml-block-form__description,
 div[id^="mailerlite-form_"] .form_subtitle {
-  font-family: 'Roboto Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1rem !important;
   color: #232323 !important;
   margin-bottom: 1.5em !important;
@@ -50,7 +50,7 @@ div[id^="mailerlite-form_"] textarea {
   border: 1px solid #232323 !important; /* Dieprood */
   border-radius: 6px !important;
   background-color: #FFFFFF !important;  /* Wit */
-  font-family: 'Roboto Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1rem !important;
   color: #232323 !important;
   margin-bottom: 1.2em !important;
@@ -66,7 +66,7 @@ div[id^="mailerlite-form_"] textarea:focus {
 /* 6. Checkbox- en radiolabels */
 div[id^="mailerlite-form_"] .ml-checkbox-group label,
 div[id^="mailerlite-form_"] .ml-radio-group label {
-  font-family: 'Roboto Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   color: #232323 !important;
   margin-left: 5px !important;
 }
@@ -105,7 +105,7 @@ div[id^="mailerlite-form_"] a:hover {
 /* 9. Foutmeldingen en validatietekst */
 div[id^="mailerlite-form_"] .ml-form-field-error,
 div[id^="mailerlite-form_"] .form_error {
-  font-family: 'Roboto Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   color: #E53935 !important;             /* Rood */
   font-size: 0.9rem !important;
   margin-top: -0.8em !important;
